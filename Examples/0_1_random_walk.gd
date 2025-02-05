@@ -25,7 +25,7 @@ var spawn_num: int = 1
 
 
 var draw_step_value: float = 0.1 # Draw ever .1 second
-var line_lifetime_value: float = 0.1 # Oldest point removed after this value
+var line_lifetime_value: float = 0.15 # Oldest point removed after this value
 var walk_speed_value: float = 1.0 # Move this distance on tick
 var walker_step_time_max: float = 0.1 # Walker moves after this wait (0.1 seconds)
 
@@ -72,6 +72,7 @@ func _on_spin_box_value_changed(value):
 func _on_add_button_button_up():
 	for i in range(spawn_num):
 		var w = WALKER.instantiate()
+		w.set_position(Vector2(randi_range(250,1000), randi_range(250, 1000)))
 		add_child(w)
 		w.set_values(walk_speed_value, draw_step_value, line_lifetime_value, walker_step_time_max)
 ## ------------------------------------------------- #
