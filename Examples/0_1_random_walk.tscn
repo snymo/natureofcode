@@ -65,7 +65,7 @@ size_flags_vertical = 2
 layout_mode = 2
 size_flags_horizontal = 2
 size_flags_vertical = 0
-text = "Draw Draw Steps"
+text = "Draw Steps"
 
 [node name="DrawStepsSlider" type="HSlider" parent="CanvasLayer/GUI/MarginContainer/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
