@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://bkqscxsqdcy2a"]
+
+[ext_resource type="Script" path="res://Examples/walker.gd" id="1_wbbe2"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_uscvl"]
+
+[node name="Walker" type="Node2D" groups=["walkers"]]
+position = Vector2(516, 298)
+script = ExtResource("1_wbbe2")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+mesh = SubResource("QuadMesh_uscvl")
+
+[node name="Line2D" type="Line2D" parent="."]
+top_level = true
+z_index = -1
+default_color = Color(1, 0, 1, 1)
+joint_mode = 2
+begin_cap_mode = 2
