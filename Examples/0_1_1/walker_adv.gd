@@ -78,6 +78,12 @@ func _ready():
 
 func _process(delta):
 	step_time += delta
+	
+	var rand = randf() # Randomly reset bias 5% of time
+	if rand > 0.95:
+		x_bias = 0
+		y_bias = 0
+		
 	if target_node != null:
 		if global_position.distance_to(target_node.global_position) > 50:
 			x_bias = 0
@@ -117,8 +123,8 @@ func _process(delta):
 									x_bias = 2
 									y_bias = 0
 
-			var xchoice = randi_range(-walk_speed,walk_speed)+x_bias
-			var ychoice = randi_range(-walk_speed,walk_speed)+y_bias
+			var xchoice = randi_range((-walk_speed-consumed),walk_speed+consumed)+x_bias
+			var ychoice = randi_range((-walk_speed-consumed),walk_speed+consumed)+y_bias
 			position.x += xchoice
 			position.y += ychoice
 			step_time = 0
@@ -132,9 +138,10 @@ func _process(delta):
 		
 	
 	if is_sleeping:
-		
 		energy += 2.5 * delta
 		if energy > energy_max:
+			x_bias = 0
+			y_bias = 0
 			is_sleeping = false
 			image.fill(c)
 			var new_texture = ImageTexture.create_from_image(image)
