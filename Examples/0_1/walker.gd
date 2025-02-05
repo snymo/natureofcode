@@ -1,7 +1,9 @@
 extends Node2D
+class_name Walker
 
 @onready var mesh_2d = $MeshInstance2D
 @onready var line = $Line2D
+@onready var rays = $Rays
 
 var color_array = [
 	Color.HOT_PINK,
@@ -35,6 +37,7 @@ var line_lifetime_delta: float = 0.2 # Line points stay for .2 seconds.
 var step_time: float = 0.0
 var max_time := 0.1 # Wait time before a new step
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	draw_timer = Timer.new()
@@ -67,6 +70,9 @@ func _process(delta):
 	if step_time > max_time:
 		var choice = randi_range(0,3)
 		
+		# TODO activate rays and check cardinal directions
+		# if any ray collides, add position to array of non-legal moves
+		# if choice moves toward non legal move, *-1 to invert (or just stand still)
 		if choice == 0:
 			position.x += walk_speed
 		elif choice == 1:

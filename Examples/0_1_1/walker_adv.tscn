@@ -1,0 +1,50 @@
+[gd_scene load_steps=4 format=3 uid="uid://2vhmh1xebvjh"]
+
+[ext_resource type="Script" path="res://Examples/0_1_1/walker_adv.gd" id="1_gbrdf"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_uscvl"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_75tme"]
+radius = 4.0
+
+[node name="Walker" type="Node2D" groups=["walkers"]]
+position = Vector2(516, 298)
+script = ExtResource("1_gbrdf")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+mesh = SubResource("QuadMesh_uscvl")
+
+[node name="Line2D" type="Line2D" parent="."]
+top_level = true
+z_index = -1
+default_color = Color(1, 0, 1, 1)
+joint_mode = 2
+begin_cap_mode = 2
+
+[node name="Rays" type="Node2D" parent="."]
+
+[node name="RayDown" type="RayCast2D" parent="Rays"]
+target_position = Vector2(0, 10)
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="RayUp" type="RayCast2D" parent="Rays"]
+target_position = Vector2(0, -10)
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="RayRight" type="RayCast2D" parent="Rays"]
+target_position = Vector2(10, 0)
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="RayLeft" type="RayCast2D" parent="Rays"]
+target_position = Vector2(-10, 0)
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="Area2D" type="Area2D" parent="."]
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_75tme")

@@ -1,7 +1,7 @@
 extends Node2D
-
+# 0.1
 ## Main control script
-const WALKER = preload("res://Examples/walker.tscn")
+const WALKER = preload("res://Examples/0_1/walker.tscn")
 var spawn_num: int = 1
 
 ## GUI
