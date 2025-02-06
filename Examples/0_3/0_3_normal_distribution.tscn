@@ -1,0 +1,72 @@
+[gd_scene load_steps=5 format=3 uid="uid://cuc3sudb0bohh"]
+
+[ext_resource type="Script" path="res://Examples/0_3/0_3_normal_distribution.gd" id="1_rtjd1"]
+[ext_resource type="Script" path="res://GeneralScripts/camera_2d_all_purpose.gd" id="2_c0l17"]
+
+[sub_resource type="Gradient" id="Gradient_xw46v"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_vg2sk"]
+gradient = SubResource("Gradient_xw46v")
+
+[node name="03NormalDistribution" type="Node2D"]
+script = ExtResource("1_rtjd1")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+script = ExtResource("2_c0l17")
+
+[node name="BackgroundSprite" type="Sprite2D" parent="."]
+texture = SubResource("GradientTexture1D_vg2sk")
+
+[node name="StartPosition" type="Marker2D" parent="."]
+position = Vector2(50, 600)
+
+[node name="GUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="GUI"]
+layout_mode = 1
+offset_right = 435.0
+offset_bottom = 220.0
+theme_override_constants/margin_left = 64
+theme_override_constants/margin_top = 64
+theme_override_constants/margin_right = 64
+theme_override_constants/margin_bottom = 64
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GUI/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="GUI/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Numbers" type="Label" parent="GUI/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Numbers:"
+
+[node name="HSlider" type="HSlider" parent="GUI/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="GUI/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Distribution" type="Label" parent="GUI/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Deviation:"
+
+[node name="HSlider2" type="HSlider" parent="GUI/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
