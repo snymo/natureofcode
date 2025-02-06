@@ -15,13 +15,13 @@ script = ExtResource("1_rtjd1")
 anchor_mode = 0
 script = ExtResource("2_c0l17")
 
-[node name="BackgroundSprite" type="Sprite2D" parent="."]
-texture = SubResource("GradientTexture1D_vg2sk")
-
 [node name="StartPosition" type="Marker2D" parent="."]
 position = Vector2(50, 600)
 
-[node name="GUI" type="Control" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="GUI" type="Control" parent="CanvasLayer"]
+top_level = true
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -31,42 +31,101 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="MarginContainer" type="MarginContainer" parent="GUI"]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/GUI"]
 layout_mode = 1
-offset_right = 435.0
-offset_bottom = 220.0
+offset_right = 1152.0
+offset_bottom = 647.0
 theme_override_constants/margin_left = 64
 theme_override_constants/margin_top = 64
 theme_override_constants/margin_right = 64
 theme_override_constants/margin_bottom = 64
 
-[node name="VBoxContainer" type="VBoxContainer" parent="GUI/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/GUI/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="GUI/MarginContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/GUI/MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Numbers" type="Label" parent="GUI/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="Numbers" type="Label" parent="CanvasLayer/GUI/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
-text = "Numbers:"
+text = "Sort n:"
 
-[node name="HSlider" type="HSlider" parent="GUI/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="SpinBox" type="SpinBox" parent="CanvasLayer/GUI/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_vertical = 4
+min_value = 1.0
+max_value = 500.0
+value = 250.0
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="GUI/MarginContainer/VBoxContainer"]
+[node name="HBoxContainer3" type="HBoxContainer" parent="CanvasLayer/GUI/MarginContainer/VBoxContainer"]
 layout_mode = 2
-size_flags_vertical = 3
 
-[node name="Distribution" type="Label" parent="GUI/MarginContainer/VBoxContainer/HBoxContainer2"]
+[node name="Numbers" type="Label" parent="CanvasLayer/GUI/MarginContainer/VBoxContainer/HBoxContainer3"]
 layout_mode = 2
 size_flags_horizontal = 0
-text = "Deviation:"
+text = "Deviation: "
 
-[node name="HSlider2" type="HSlider" parent="GUI/MarginContainer/VBoxContainer/HBoxContainer2"]
+[node name="HSlider" type="HSlider" parent="CanvasLayer/GUI/MarginContainer/VBoxContainer/HBoxContainer3"]
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_vertical = 4
+min_value = 5.0
+max_value = 30.0
+value = 15.0
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/GUI/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Distribution" type="Label" parent="CanvasLayer/GUI/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Type: "
+
+[node name="MenuBar" type="MenuBar" parent="CanvasLayer/GUI/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "Select the type of sorting algorithm to use."
+
+[node name="PopupMenu" type="PopupMenu" parent="CanvasLayer/GUI/MarginContainer/VBoxContainer/HBoxContainer2/MenuBar"]
+item_count = 5
+item_0/text = "Gaussian"
+item_0/id = 2
+item_1/text = "None"
+item_1/id = 1
+item_2/text = "Bimodal"
+item_2/id = 3
+item_3/text = "Exponential"
+item_3/id = 4
+item_4/text = "Triangular"
+item_4/id = 5
+
+[node name="StartButton" type="Button" parent="CanvasLayer/GUI/MarginContainer/VBoxContainer"]
+layout_mode = 2
+tooltip_text = "Start sorting."
+text = "Start"
+
+[node name="ResetButton" type="Button" parent="CanvasLayer/GUI/MarginContainer/VBoxContainer"]
+layout_mode = 2
+tooltip_text = "Reset all variables and columns."
+text = "Reset"
+
+[node name="SortLabel" type="Label" parent="CanvasLayer/GUI"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -62.0
+offset_top = 17.0
+offset_right = 62.0
+offset_bottom = 40.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+
+[node name="BackgroundSprite" type="Sprite2D" parent="."]
+texture = SubResource("GradientTexture1D_vg2sk")
+
+[connection signal="drag_ended" from="CanvasLayer/GUI/MarginContainer/VBoxContainer/HBoxContainer3/HSlider" to="." method="_on_h_slider_drag_ended"]
+[connection signal="id_pressed" from="CanvasLayer/GUI/MarginContainer/VBoxContainer/HBoxContainer2/MenuBar/PopupMenu" to="." method="_on_popup_menu_id_pressed"]
+[connection signal="button_up" from="CanvasLayer/GUI/MarginContainer/VBoxContainer/StartButton" to="." method="_on_start_button_button_up"]
+[connection signal="button_up" from="CanvasLayer/GUI/MarginContainer/VBoxContainer/ResetButton" to="." method="_on_reset_button_button_up"]
