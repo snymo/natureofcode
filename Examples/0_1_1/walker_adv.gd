@@ -86,6 +86,10 @@ func _process(delta):
 		
 	if target_node != null:
 		if global_position.distance_to(target_node.global_position) > 50:
+			# Reset if target is 50px away
+			image.fill(c)
+			var new_texture = ImageTexture.create_from_image(image)
+			mesh_2d.texture = new_texture
 			x_bias = 0
 			y_bias = 0
 		
@@ -95,18 +99,32 @@ func _process(delta):
 			energy += 10
 			consumed += 1
 			printerr("Consumed "+str(consumed)+" creatures.")
-			scale.x += consumed
-			scale.y += consumed
+			scale.x += consumed/2
+			scale.y += consumed/2
 			target_node.queue_free()
 			target_node = null
+			if consumed > 12:
+				var nc = c
+				nc.a = 0.3
+				image.fill(nc)
+				var new_texture = ImageTexture.create_from_image(image)
+				mesh_2d.texture = new_texture
+				
+			if consumed > 4:
+				var nc = c
+				nc.a = 0.8
+				image.fill(nc)
+				var new_texture = ImageTexture.create_from_image(image)
+				mesh_2d.texture = new_texture
 	
 	if step_time > max_time and not is_sleeping:
 		if energy > 0:
 			set_ray_state(true)
 			for ray in rays.get_children():
 				if ray.is_colliding():
-					var target = ray.get_collider().get_parent() # FIXME - Null causes crash with get_parent()
-					if target != null:
+					var collider = ray.get_collider()
+					if collider:
+						var target = collider.get_parent()
 						if target.is_sleeping:
 							if target.scale.x < scale.x*2: # Can't eat big guys.
 								target_node = target
