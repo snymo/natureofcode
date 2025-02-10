@@ -1,0 +1,43 @@
+[gd_scene load_steps=2 format=3 uid="uid://bivi2vwpkdrch"]
+
+[ext_resource type="Script" path="res://Examples/0_4/0_4_perlin_noise.gd" id="1_wqxuq"]
+
+[node name="04PerlinNoise" type="Node2D"]
+script = ExtResource("1_wqxuq")
+
+[node name="RandomRangeStart" type="Marker2D" parent="."]
+position = Vector2(155, 50)
+
+[node name="PerlinNoiseStart" type="Marker2D" parent="."]
+position = Vector2(155, 150)
+
+[node name="SimplexSmoothStart" type="Marker2D" parent="."]
+position = Vector2(155, 250)
+
+[node name="GaussianDistributionStart" type="Marker2D" parent="."]
+position = Vector2(155, 350)
+
+[node name="RandomRange" type="Label" parent="."]
+offset_top = 39.0
+offset_right = 122.0
+offset_bottom = 62.0
+text = "Random Range:"
+
+[node name="PerlinNoise" type="Label" parent="."]
+offset_top = 138.0
+offset_right = 98.0
+offset_bottom = 161.0
+text = "Perlin Noise:
+"
+
+[node name="SimplexSmooth" type="Label" parent="."]
+offset_top = 237.0
+offset_right = 130.0
+offset_bottom = 260.0
+text = "Simplex Smooth:"
+
+[node name="GaussianDistribution" type="Label" parent="."]
+offset_top = 337.0
+offset_right = 130.0
+offset_bottom = 360.0
+text = "Gaussian:"
