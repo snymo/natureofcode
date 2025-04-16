@@ -14,7 +14,7 @@ albedo_color = Color(0, 0.251702, 0.251961, 1)
 [sub_resource type="BoxMesh" id="BoxMesh_cog7a"]
 material = SubResource("StandardMaterial3D_ehmfu")
 flip_faces = true
-size = Vector3(20.325, 20.125, 20.125)
+size = Vector3(20.525, 20.325, 20.325)
 
 [node name="1_2_BouncingBall3D" type="Node3D"]
 script = ExtResource("1_cog7a")

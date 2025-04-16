@@ -6,7 +6,7 @@ extends Node3D
 const HIT_MARKER = preload("res://Examples/1_2/Marker/hit_marker.tscn")
 
 var box_size: Vector3 = Vector3(20,20,20)
-var ball_move_vector: Vector3 = Vector3(0.125,0.1,0.115)
+var ball_move_vector: Vector3 = Vector3(0.225,0.2,0.215)
 
 func _process(delta):
 
