@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://dperapiomf76c"]
+
+[ext_resource type="Script" uid="uid://dirwa8tn3iher" path="res://Examples/1_2/1_2_3_bouncing_ball_3d.gd" id="1_cog7a"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cog7a"]
+albedo_color = Color(1, 0.52549, 0.517647, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_ehmfu"]
+material = SubResource("StandardMaterial3D_cog7a")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ehmfu"]
+albedo_color = Color(0, 0.251702, 0.251961, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_cog7a"]
+material = SubResource("StandardMaterial3D_ehmfu")
+flip_faces = true
+size = Vector3(20.325, 20.125, 20.125)
+
+[node name="1_2_BouncingBall3D" type="Node3D"]
+script = ExtResource("1_cog7a")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.807115, 0.590394, 0, -0.590394, 0.807115, 8.9957, 40.2685, 52.2694)
+fov = 35.0
+
+[node name="Ball" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 5, 3.51055)
+mesh = SubResource("SphereMesh_ehmfu")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.998362, -0.0148625, -0.0552515, 0.0572155, 0.259338, 0.96409, -1.65191e-09, -0.965672, 0.259763, 12.5974, 26.6583, 0)
+shadow_enabled = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 10, 10)
+mesh = SubResource("BoxMesh_cog7a")
