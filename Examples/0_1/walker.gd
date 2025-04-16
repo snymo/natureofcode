@@ -3,7 +3,7 @@ class_name Walker
 
 @onready var mesh_2d = $MeshInstance2D
 @onready var line = $Line2D
-@onready var rays = $Rays
+#@onready var rays = $Rays
 
 var color_array = [
 	Color.HOT_PINK,

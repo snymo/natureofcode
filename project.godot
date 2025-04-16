@@ -12,7 +12,7 @@ config_version=5
 
 config/name="NatureOfCode"
 run/main_scene="res://Examples/0_1_1/0_1_1_random_walk.tscn"
-config/features=PackedStringArray("4.3", "Forward Plus")
+config/features=PackedStringArray("4.4", "Forward Plus")
 
 [display]
 

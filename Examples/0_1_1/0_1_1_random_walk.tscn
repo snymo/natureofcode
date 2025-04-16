@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://clwgn0yrx36qh"]
 
-[ext_resource type="Script" path="res://Examples/0_1_1/0_1_1_random_walk.gd" id="1_ica6t"]
-[ext_resource type="Script" path="res://Examples/0_1/camera_2d.gd" id="2_krus0"]
+[ext_resource type="Script" uid="uid://cggb5mfs1lsxt" path="res://Examples/0_1_1/0_1_1_random_walk.gd" id="1_ica6t"]
+[ext_resource type="Script" uid="uid://c66r4pgt4piil" path="res://Examples/0_1/camera_2d.gd" id="2_krus0"]
 
 [node name="011RandomWalk" type="Node2D"]
 script = ExtResource("1_ica6t")

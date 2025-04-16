@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bivi2vwpkdrch"]
 
-[ext_resource type="Script" path="res://Examples/0_4/0_4_perlin_noise.gd" id="1_wqxuq"]
+[ext_resource type="Script" uid="uid://f3ts36r7ehv3" path="res://Examples/0_4/0_4_perlin_noise.gd" id="1_wqxuq"]
 
 [node name="04PerlinNoise" type="Node2D"]
 script = ExtResource("1_wqxuq")

@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cuc3sudb0bohh"]
 
-[ext_resource type="Script" path="res://Examples/0_3/0_3_normal_distribution.gd" id="1_rtjd1"]
-[ext_resource type="Script" path="res://GeneralScripts/camera_2d_all_purpose.gd" id="2_c0l17"]
+[ext_resource type="Script" uid="uid://bqbvh4wesixfq" path="res://Examples/0_3/0_3_normal_distribution.gd" id="1_rtjd1"]
+[ext_resource type="Script" uid="uid://digoiy0eg8wps" path="res://GeneralScripts/camera_2d_all_purpose.gd" id="2_c0l17"]
 
 [sub_resource type="Gradient" id="Gradient_xw46v"]
 
