@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://3c6ahp2hdae"]
+
+[ext_resource type="Script" uid="uid://kn2tcmbhxgnj" path="res://Examples/1_6/1_6_motion_with_vectors.gd" id="1_e0oa3"]
+
+[node name="1_6_MotionWithVectors" type="Node2D"]
+script = ExtResource("1_e0oa3")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
