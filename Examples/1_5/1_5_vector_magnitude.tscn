@@ -17,3 +17,12 @@ offset_right = -471.0
 offset_bottom = -285.0
 grow_vertical = 2
 text = "Magnitude:"
+
+[node name="CheckBox" type="CheckBox" parent="."]
+offset_left = -558.0
+offset_top = -276.0
+offset_right = -450.0
+offset_bottom = -245.0
+text = "Normalize"
+
+[connection signal="toggled" from="CheckBox" to="." method="_on_check_box_toggled"]
