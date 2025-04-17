@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://bkvgcjktdymm"]
+
+[ext_resource type="Script" uid="uid://vpt1pdbh81as" path="res://Examples/1_5/1_5_vector_magnitude.gd" id="1_7lgmb"]
+
+[node name="1_5_VectorMagnitude" type="Node2D"]
+script = ExtResource("1_7lgmb")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="LineMag" type="Label" parent="."]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -559.0
+offset_top = -308.0
+offset_right = -471.0
+offset_bottom = -285.0
+grow_vertical = 2
+text = "Magnitude:"
