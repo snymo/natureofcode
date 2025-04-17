@@ -16,7 +16,7 @@ material = SubResource("StandardMaterial3D_ehmfu")
 flip_faces = true
 size = Vector3(20.525, 20.325, 20.325)
 
-[node name="1_2_BouncingBall3D" type="Node3D"]
+[node name="1_2_3_BouncingBall3D" type="Node3D"]
 script = ExtResource("1_cog7a")
 
 [node name="Camera3D" type="Camera3D" parent="."]

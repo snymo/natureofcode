@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://cy2pod8pdko2y" path="res://Examples/0_1/0_1_random_walk.gd" id="1_bbwkj"]
 [ext_resource type="Script" uid="uid://c66r4pgt4piil" path="res://Examples/0_1/camera_2d.gd" id="2_gj5xd"]
 
-[node name="01RandomWalk" type="Node2D"]
+[node name="0_1_RandomWalk" type="Node2D"]
 script = ExtResource("1_bbwkj")
 
 [node name="Camera2D" type="Camera2D" parent="."]
