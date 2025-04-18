@@ -14,25 +14,8 @@ var colors: Array = [
 	"Yellow", 
 	"Orange", 
 	"Purple", 
-	"Pink", 
-	"White", 
-	"Black", 
-	"Gray", 
-	"Cyan", 
-	"Magenta", 
-	"Lime", 
-	"Maroon", 
-	"Navy", 
-	"Olive", 
-	"Teal", 
-	"Violet", 
-	"Brown", 
-	"Coral", 
-	"Gold", 
-	"Silver", 
-	"Turquoise", 
-	"Indigo", 
-	"Beige"
+	"Pink",
+	"Black"
 ]
 var col: Color
 func _ready():
